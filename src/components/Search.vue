@@ -23,8 +23,6 @@ watch(inputValue, (e) => {
       tableData.push(song);
     }
   })
-  console.log(e);
-  console.log(tableData);
 });
 </script>
 

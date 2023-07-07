@@ -34,6 +34,5 @@ const columns = [{
     }]
 const pagination = false as const;
 const props = defineProps(['data'])
-console.log(props.data);
 
 </script>
