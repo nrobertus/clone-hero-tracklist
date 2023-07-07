@@ -18,7 +18,6 @@ const inputValue = ref("");
 let tableData = reactive(sortMultiple(json));
 watch(inputValue, (e) => {
   const terms = e.split(" ").filter((n) => n);
-  console.log(terms);
 
   tableData = [];
   json.forEach((song) => {
