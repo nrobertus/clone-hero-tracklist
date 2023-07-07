@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { h, defineComponent } from "vue";
-import { NButton, DataTableColumns, NDataTable } from "naive-ui";
+import { NButton, NDataTable } from "naive-ui";
 
 type Song = {
   no: number;

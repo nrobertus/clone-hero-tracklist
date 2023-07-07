@@ -4,18 +4,18 @@ import Table from './Table.vue';
 import { defineComponent, reactive, ref, watch } from "vue";
 import { NInput } from "naive-ui";
 
-function sortMultiple(data, colA, colB){
+function sortMultiple(data: { Name: string, Artist: string }[]){
   return data.sort((a, b)=> {
-  if (a[colA] === b[colA]){
-    return a[colB].localeCompare(b[colB])
+  if (a.Artist === b.Artist){
+    return a.Name.localeCompare(b.Name)
   } else {
-    return a[colA].localeCompare(b[colA])
+    return a.Artist.localeCompare(b.Artist)
   }
 })
 }
 
 const inputValue = ref("");
-let tableData = reactive(sortMultiple(json, 'Artist', 'Name'));
+let tableData = reactive(sortMultiple(json));
 watch(inputValue, (e) => {
   tableData = [];
   json.forEach(song => {
