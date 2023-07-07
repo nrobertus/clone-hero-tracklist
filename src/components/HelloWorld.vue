@@ -1,4 +1,7 @@
 <script setup lang="ts">
+ import json from '../data/songs.json';
+ console.log(json);
+      
 defineProps<{
   msg: string
 }>()
