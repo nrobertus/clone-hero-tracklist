@@ -3,7 +3,7 @@
     :columns="columns"
     :data="props.data"
     :pagination="pagination"
-    :bordered="false"
+    striped
   />
 </template>
 
