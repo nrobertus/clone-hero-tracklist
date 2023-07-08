@@ -1,5 +1,6 @@
 <template>
   <n-data-table
+    ref="tableRef"
     :columns="columns"
     :data="props.data"
     :pagination="pagination"
@@ -8,29 +9,48 @@
 </template>
 
 <script setup lang="ts">
-import { h, defineComponent } from "vue";
+import {h} from 'vue';
 import { NButton, NDataTable } from "naive-ui";
+import {artistSortFunction, nameSortFunction, genreSortFunction, songDataType} from "../helpers";
 
-type Song = {
-  no: number;
-  title: string;
-  length: string;
-};
-
-
-const data: Song[] = [
-  { no: 3, title: "Wonderwall", length: "4:18" },
-  { no: 4, title: "Don't Look Back in Anger", length: "4:48" },
-  { no: 12, title: "Champagne Supernova", length: "7:27" },
-];
+function copy(row: songDataType){
+  navigator.clipboard.writeText(row.Artist + " - " + row.Name);
+}
 
 const columns = [{
       title: "Artist",
       key: "Artist",
+      sorter: artistSortFunction
     },
     {
       title: "Name",
       key: "Name",
+      sorter: nameSortFunction
+    },
+    {
+      title: "Genre",
+      key: "Genre",
+      sorter: genreSortFunction
+    },
+    {
+      title: "Year",
+      key: "Year",
+    },
+    {
+      title: 'Action',
+      key: 'actions',
+      render (row) {
+        return h(
+          NButton,
+          {
+            strong: true,
+            tertiary: false,
+            size: 'small',
+            onClick: () => copy(row)
+          },
+          { default: () => 'Copy' }
+        )
+      }
     }]
 const pagination = false as const;
 const props = defineProps(['data'])

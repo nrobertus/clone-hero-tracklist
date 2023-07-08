@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Search from "./components/Search.vue";
-  import { darkTheme, NConfigProvider } from 'naive-ui'
+import { darkTheme, NConfigProvider } from 'naive-ui'
 
 </script>
 
@@ -8,7 +8,7 @@ import Search from "./components/Search.vue";
   <n-config-provider :theme="darkTheme">
 
   <main class="main">
-      <h1 class="title">Clone Hero Tracklist</h1>
+      <h1 class="title">Interloper's Clone Hero Tracklist</h1>
       <Search />
   </main>
   </n-config-provider>
